@@ -1,11 +1,11 @@
 
-# 🍌 Banana Serverless 
+# 🍌 Banana Serverless
 
 This repo gives a basic framework for serving ML models in production using simple HTTP servers.
 
 ## Quickstart:
 
-The repo is already set up to run a basic [HuggingFace BERT](https://huggingface.co/docs/transformers/model_doc/bert) model.
+The repo is already set up to run a basic [HuggingFace GPTJ](https://huggingface.co/EleutherAI/gpt-j-6B) model.
 1. Run `pip3 install -r requirements.txt` to download dependencies.
 2. Run `python3 server.py` to start the server.
 3. Run `python3 test.py` in a different terminal session to test against it.
@@ -29,7 +29,7 @@ If Banana is your favorite GPU hosting provider (and we sure hope it is), read o
 
 # Deploy to Banana Serverless:
 
-Four steps:
+Three steps:
 1. Create your own copy of this template repo. Either:
 - Click "[Fork](https://github.com/bananaml/serverless-template/fork)" (creates a public repo)
 - Click "[Use this Template](https://github.com/bananaml/serverless-template/generate)" (creates a private or public repo)
@@ -37,21 +37,9 @@ Four steps:
 
 2. Install the [Banana Github App](https://github.com/apps/banana-serverless) to your new repo.
 
-3. Get your Banana API Key by [logging in here](https://app.banana.dev).
+3. Login in to the [Banana Dashboard](https://app.banana.dev) and setup your account by saving your payment details and linking your Github.
 
-4. Email us at `onboarding@banana.dev` with the following message:
-
-```
-Hello, I'd like to be onboarded to serverless.
-My github username is: YOUR_GITHUB_USERNAME
-My Banana API Key is: YOUR_API_KEY
-My preferred billing email is: YOU@EMAIL.COM
-```
-Your github username, banana api key, and email are required for us to authorize you into the system.
-We will reply and confirm when you're added.
-<br>
-
-From then onward, any pushes to the `main` branch trigger Banana to build and deploy your server, using the Dockerfile.
+From then onward, any pushes to the default repo branch (usually "main" or "master") trigger Banana to build and deploy your server, using the Dockerfile.
 Throughout the build we'll sprinkle in some secret sauce to make your server extra snappy 🔥
 
 It'll then be deployed on our Serverless GPU cluster and callable with any of our serverside SDKs:
@@ -60,4 +48,18 @@ It'll then be deployed on our Serverless GPU cluster and callable with any of ou
 - [Node JS / Typescript](https://github.com/bananaml/banana-node-sdk)
 - [Go](https://github.com/bananaml/banana-go)
 
-Use Banana for scale!
+You can monitor the progress of builds by running a cURL to our logs API:<br>
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"apiKey":"YOUR_API_KEY"}' https://logs.banana.dev | json_pp
+
+```
+
+Once you receive your modelKey from the first build, you can add the optional "modelKey" value to the curl json to filter the return down to a single model.<br>
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{"apiKey":"YOUR_API_KEY", "modelKey":"YOUR_MODEL_KEY"}' https://logs.banana.dev | json_pp
+
+```
+
+<br>
+
+## Use Banana for scale.
