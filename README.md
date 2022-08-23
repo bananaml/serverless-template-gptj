@@ -31,9 +31,8 @@ If Banana is your favorite GPU hosting provider (and we sure hope it is), read o
 
 Three steps:
 1. Create your own copy of this template repo. Either:
-- Click "[Fork](https://github.com/bananaml/serverless-template/fork)" (creates a public repo)
-- Click "[Use this Template](https://github.com/bananaml/serverless-template/generate)" (creates a private or public repo)
-- Create your own repo and copy the template files into it
+- Click "Fork" on this repo (creates a public repo)
+- Create your own repo and copy the template files into it (to create a private repo)
 
 2. Install the [Banana Github App](https://github.com/apps/banana-serverless) to your new repo.
 
@@ -48,17 +47,7 @@ It'll then be deployed on our Serverless GPU cluster and callable with any of ou
 - [Node JS / Typescript](https://github.com/bananaml/banana-node-sdk)
 - [Go](https://github.com/bananaml/banana-go)
 
-You can monitor the progress of builds by running a cURL to our logs API:<br>
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"apiKey":"YOUR_API_KEY"}' https://logs.banana.dev | json_pp
-
-```
-
-Once you receive your modelKey from the first build, you can add the optional "modelKey" value to the curl json to filter the return down to a single model.<br>
-```bash
-curl -X POST -H "Content-Type: application/json" -d '{"apiKey":"YOUR_API_KEY", "modelKey":"YOUR_MODEL_KEY"}' https://logs.banana.dev | json_pp
-
-```
+View deployment progress on [our dashboard](https://app.banana.dev)
 
 <br>
 
