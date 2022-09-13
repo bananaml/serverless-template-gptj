@@ -29,25 +29,16 @@ If Banana is your favorite GPU hosting provider (and we sure hope it is), read o
 
 # Deploy to Banana Serverless:
 
-Three steps:
-1. Create your own copy of this template repo. Either:
-- Click "Fork" on this repo (creates a public repo)
-- Create your own repo and copy the template files into it (to create a private repo)
+- Log in to the [Banana App](https://app.banana.dev)
+- Select your customized repo for deploy!
 
-2. Install the [Banana Github App](https://github.com/apps/banana-serverless) to your new repo.
-
-3. Login in to the [Banana Dashboard](https://app.banana.dev) and setup your account by saving your payment details and linking your Github.
-
-From then onward, any pushes to the default repo branch (usually "main" or "master") trigger Banana to build and deploy your server, using the Dockerfile.
-Throughout the build we'll sprinkle in some secret sauce to make your server extra snappy 🔥
-
-It'll then be deployed on our Serverless GPU cluster and callable with any of our serverside SDKs:
+It'll then be built from the dockerfile, optimized, then deployed on our Serverless GPU cluster and callable with any of our SDKs:
 
 - [Python](https://github.com/bananaml/banana-python-sdk)
 - [Node JS / Typescript](https://github.com/bananaml/banana-node-sdk)
 - [Go](https://github.com/bananaml/banana-go)
 
-View deployment progress on [our dashboard](https://app.banana.dev)
+You can monitor buildtime and runtime logs by clicking the logs button in the model view on the Banana Dashboard](https://app.banana.dev)
 
 <br>
 
